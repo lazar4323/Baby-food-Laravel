@@ -127,49 +127,44 @@
 					</div>
 					<div class="main-menu">
 						<ul>
+							<li>
+								<a href="">@include('auth.check')</a><br>
+							</li>
                             <li>
-                                <a href="{{ route('home') }}">Home</a>
+							<a class="" href="{{ route('home') }}">Home</a>
                             </li>
-                            <li><a href="{{ route('about') }}">About</a></li>
+                            <li><a class="#0" href="{{ route('about') }}">About</a></li>
                             <li>
-                                <a class="active" href="#0">Pages</a>
+                                <a href="#0">Pages</a>
                                 <ul>
                                     <li>
-                                        <a class="active" href="#0">Category</a>
+                                        <a href="#0">Category</a>
                                         <ul>
-                                            <li><a class="active" href="food-menu.html">Food Category</a></li>
+                                            <li><a class="active" href="{{ route('category') }}">Food Category</a></li>
                                             <li><a href="{{ route('categories') }}">Categories</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="#0">Chef</a>
                                         <ul>
-                                            <li><a href="{{ route('allChefs') }}">All Chefs</a></li>
-                                            <li><a href="{{ route('chefSingle') }}">Home Chef Single</a></li>
+											<li><a href="{{ route('allChefs') }}">All Chefs</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="recepi-single.html">Single Recipe</a></li>
-                                    <li><a href="404.html">404 Page</a></li>
-                                    <li><a href="coming-soon.html">Coming Soon Page</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#0">Blog</a>
                                 <ul>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="blog-single.html">Blog Single</a></li>
+                                    <li><a href="{{ route('blog') }}">Blog</a></li>
                                 </ul>								
                             </li>
                             <li>
                                 <a href="#0">Shop</a>
                                 <ul>
-                                    <li><a href="shop-page.html">Shop Page</a></li>
-                                    <li><a href="shop-single.html">Shop Single style-1</a></li>
-                                    <li><a href="shop-single-2.html">Shop Single style-2</a></li>
-                                    <li><a href="cart-page.html">Cart Page</a></li>
+									<li><a href="{{ route('shop') }}">Shop Page</a></li>
                                 </ul>
                             </li>						
-                            <li><a href="contact-us.html">Contact</a></li>
+                            <li><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
 					</div>
 					<div class="author-option">
@@ -302,7 +297,6 @@
 								</div>
 							</div>
 							<button class="button btn btn-primary">Deposit: {{ Auth::user()->deposit }}</button>
-							@include('auth.check')
 						</div>
 					</div>
 				</div>
@@ -347,7 +341,7 @@
 									</div>
 									<div class="p-food-content">
 										<div class="p-food-author">
-											<a href="#">
+											<a >
 												@if (isset($card->image2))
 												<img src="/card_images/{{ $card->image2 }}" alt="">
 											@endif</a>
@@ -355,7 +349,7 @@
 										</div>
 										<h6><a href="#">{{ $card->name }}</a></h6>
 										<div class="p-food-group">
-											<span>Type of food : {{ $card->foodname }}</span>
+											<a href="{{ route('recipe',['id'=>$card->id]) }}"><span>Type of food : {{ $card->foodname }}</span></a>
 										</div>
 										<ul class="del-time">
 											<li>
@@ -426,11 +420,9 @@
 						</div>
 						<div class="footer-menu">
 							<ul>
-								<li><a href="#">Home</a></li>
-								<li><a href="#">How it works?</a></li>
-								<li><a href="#">Menus</a></li>
-								<li><a href="#">Chefs</a></li>
-								<li><a href="#">Recipes</a></li>
+								<li><a href="{{  route('home') }}">Home</a></li>
+								<li><a href="{{  route('category') }}">Menus</a></li>
+								<li><a href="{{  route('allChefs') }}">Chefs</a></li>
 								<li><a href="#">Contact</a></li>
 							</ul>
 						</div>

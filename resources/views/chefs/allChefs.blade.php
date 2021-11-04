@@ -128,61 +128,48 @@
 					</div>
 					<div class="main-menu">
 						<ul>
+							<li>
+								<a href="">@include('auth.check')</a><br>
+							</li>
                             <li>
-                            <a href="{{ route('home') }}">Home</a>
+							<a class="" href="{{ route('home') }}">Home</a>
                             </li>
-                            <li><a href="{{ route('about') }}">About</a></li>
+                            <li><a class="#0" href="{{ route('about') }}">About</a></li>
                             <li>
-                                <a class="active" href="#0">Pages</a>
+                                <a href="#0">Pages</a>
                                 <ul>
                                     <li>
                                         <a href="#0">Category</a>
                                         <ul>
-                                            <li><a href="{{route('category')}}">Food Menu</a></li>
-                                            <li><a href="{{route('categories')}}">Categories</a></li>
+                                            <li><a  href="{{ route('category') }}">Food Category</a></li>
+                                            <li><a href="{{ route('categories') }}">Categories</a></li>
                                         </ul>
-                                    </li>
+                                    </li>\
                                     <li>
-                                        <a class="active" href="#0">Chef</a>
+                                        <a href="#0">Chef</a>
                                         <ul>
-                                            <li><a class="active" href="#">Home Chef</a></li>
-                                            <li><a href="{{ route('chefSingle') }}">Home Chef Single</a></li>
+											<li><a class="active" href="{{ route('allChefs') }}">All Chefs</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="recepi-single.html">Single Recipe</a></li>
-                                    <li><a href="404.html">404 Page</a></li>
-                                    <li><a href="coming-soon.html">Coming Soon Page</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#0">Blog</a>
                                 <ul>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="blog-single.html">Blog Single</a></li>
+                                    <li><a href="{{ route('blog') }}">Blog</a></li>
                                 </ul>								
                             </li>
                             <li>
                                 <a href="#0">Shop</a>
                                 <ul>
-                                    <li><a href="shop-page.html">Shop Page</a></li>
-                                    <li><a href="shop-single.html">Shop Single style-1</a></li>
-                                    <li><a href="shop-single-2.html">Shop Single style-2</a></li>
-                                    <li><a href="cart-page.html">Cart Page</a></li>
+									<li><a href="{{ route('shop') }}">Shop Page</a></li>
                                 </ul>
                             </li>						
-                            <li><a href="contact-us.html">Contact</a></li>
+                            <li><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
 					</div>
 					<div class="author-option">
 						<div class="author-area">
-							<div class="city-lang">
-								<img src="assets/images/header/01.png" alt="city-lang">
-								<select name="lang" id="lang">
-									<option value="1">ENG</option>
-									<option value="2">BAN</option>
-									<option value="3">ESP</option>
-								</select>
-							</div>
 							<div class="cart-option">
 								<img src="assets/images/header/cart.png" alt="shop-cart">
 								<div class="count-item">04</div>
@@ -311,14 +298,7 @@
 								</div>
 							</div>
 							<div class="author-account">
-								<div class="author-icon">
-									<img src="assets/images/chef/author/08.jpg" alt="author">
-								</div>
 								<div class="author-select">
-									<select name="author-select" id="author-select">
-										<option value="1">My Account </option>
-										<option value="2">Log Out </option>
-									</select>
 								</div>
 							</div>
 						</div>
@@ -340,7 +320,7 @@
 				<div class="page-title text-center">
 					<h3 style="margin-left: -500px;">Popular HomeChef</h3>
 					<ul class="breadcrumb">
-						<li style="margin-left: -500px;"><a href="#">Home</a></li>
+						<li style="margin-left: -500px;"><a href="{{ route('home') }}">Home</a></li>
 						<li>HomeChef</li>
 					</ul>
 				</div>
@@ -364,16 +344,16 @@
 									</div>
 									<div class="chef-content">
 										<div class="chef-author">
-											<a href="#">
+											<a >
                                             @if (isset($chef->image2))
                                                 <img src="/chef_images/{{ $chef->image2 }}" alt="">
                                             @endif
 											</a>
 										</div>
-										<h5><a href="#">{{ $chef->name }}</a></h5>
+										<h5><a href="{{ route('allChefs.showChef',['id'=>$chef->id]) }}">{{ $chef->name }}</a></h5>
 										<p>{{ $chef->position }}</p>
 										<div class="scocial-share">
-											<a href="#" class="food-btn"><span><i class="icofont-ui-user"></i> follow</span></a>
+											<a href="{{ route('allChefs.showChef',['id'=>$chef->id]) }}" class="food-btn"><span><i class="icofont-ui-user"></i> contact</span></a>
 										</div>
 										<div class="chef-footer">
 											<div class="chef-earn chef-con">
@@ -418,11 +398,9 @@
 						</div>
 						<div class="footer-menu">
 							<ul>
-								<li><a href="#">Home</a></li>
-								<li><a href="#">How it works?</a></li>
-								<li><a href="#">Menus</a></li>
-								<li><a href="#">Chefs</a></li>
-								<li><a href="#">Recipes</a></li>
+								<li><a href="{{  route('home') }}">Home</a></li>
+								<li><a href="{{  route('category') }}">Menus</a></li>
+								<li><a href="{{  route('allChefs') }}">Chefs</a></li>
 								<li><a href="#">Contact</a></li>
 							</ul>
 						</div>
@@ -454,4 +432,5 @@
 		<script src="assets/js/functions.js"></script>
 	</body>
 </html>
+
 @endsection

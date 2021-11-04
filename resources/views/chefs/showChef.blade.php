@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-	Food-menu page
+	Chef page
 @endsection
 
 @section('content')
@@ -13,33 +13,30 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		
 		<!-- favicon -->
-		<link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
+		<link rel="shortcut icon" href="../assets/images/favicon.png" type="image/png">
 		<!-- animate scss -->
-		<link rel="stylesheet" href="assets/css/animate.css">
+		<link rel="stylesheet" href="../assets/css/animate.css">
 		<!-- bootstarp css -->
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../assets/css/bootstarp.min.css">
 		<!-- icofont -->
-		<link rel="stylesheet" href="assets/css/icofont.min.css">
+		<link rel="stylesheet" href="../assets/css/icofont.min.css">
 		<!-- lightcase css -->
-		<link rel="stylesheet" href="assets/css/lightcase.css">
-		<!-- swiper css -->
-		<link rel="stylesheet" href="assets/css/swiper.min.css">
+		<link rel="stylesheet" href="../assets/css/lightcase.css">
+		<!-- swiper css --> 
+		<link rel="stylesheet" href="../assets/css/swiper.min.css">
 		<!-- cusyom scss -->
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
         
 		<title>Mezban HomeChef Single</title>
 	</head>
 
 	<body>
-		<!-- preloader -->
-		<div class="preloader"><div class="load loade"><hr/><hr/><hr/><hr/></div></div>
-		<!-- preloader -->
 
 		<!-- Mobile Menu Start Here -->
 		<div class="mobile-menu">
 			<nav class="mobile-header d-xl-none">
 				<div class="header-logo">
-					<a href="index.html" class="logo"><img src="assets/images/logo/01.png" alt="logo"></a>
+					<a href="index.html" class="logo"><img src="../assets/images/logo/01.png" alt="logo"></a>
 				</div>
 				<div class="header-bar">
 					<span></span>
@@ -123,74 +120,54 @@
 			<div class="container-fluid">
 				<div class="header-area">
 					<div class="logo">
-						<a href="index.html"><img src="assets/images/logo/01.png" alt="logo"></a>
+						<a href="index.html"><img src="../assets/images/logo/01.png" alt="logo"></a>
 					</div>
 					<div class="main-menu">
                         <ul>
                             <li>
-                                <a href="#0">Home</a>
-                                <ul>
-                                    <li><a href="index.html">Home Page One</a></li>
-                                    <li><a href="index-2.html">Home Page Two</a></li>
-                                    <li><a href="index-3.html">Home Page Three</a></li>
-                                    <li><a href="index-4.html">Home Page Four</a></li>
-                                </ul>
+                                <a href="">@include('auth.check')</a>
                             </li>
-                            <li><a href="about.html">About</a></li>
+                            <li>
+                                <a href="{{ route('home') }}">Home</a>
+                            </li>
+                            <li><a href="{{ route('about') }}">About</a></li>
                             <li>
                                 <a class="active" href="#0">Pages</a>
                                 <ul>
                                     <li>
                                         <a href="#0">Category</a>
                                         <ul>
-                                            <li><a href="food-menu.html">Food Category</a></li>
-                                            <li><a href="menu-card.html">Category style 1</a></li>
-                                            <li><a href="menu-card-2.html">Category style 2</a></li>
+                                            <li><a href="{{ route('category') }}">Food Category</a></li>
+                                            <li><a href="{{ route('categories') }}">Categories</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a class="active" href="#0">Chef</a>
                                         <ul>
-                                            <li><a href="homechef.html">Home Chef</a></li>
-                                            <li><a class="active" href="homechef-single.html">Home Chef Single</a></li>
+                                            <li><a href="{{ route('allChefs') }}">All Chefs</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="recepi-single.html">Single Recipe</a></li>
-                                    <li><a href="404.html">404 Page</a></li>
-                                    <li><a href="coming-soon.html">Coming Soon Page</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#0">Blog</a>
                                 <ul>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="blog-single.html">Blog Single</a></li>
+                                    <li><a href="{{  route('blog') }}">Blog</a></li>
                                 </ul>								
                             </li>
                             <li>
                                 <a href="#0">Shop</a>
                                 <ul>
-                                    <li><a href="shop-page.html">Shop Page</a></li>
-                                    <li><a href="shop-single.html">Shop Single style-1</a></li>
-                                    <li><a href="shop-single-2.html">Shop Single style-2</a></li>
-                                    <li><a href="cart-page.html">Cart Page</a></li>
+                                    <li><a href="{{route('shop')}}">Shop Page</a></li>
                                 </ul>
                             </li>						
-                            <li><a href="contact-us.html">Contact</a></li>
+                            <li><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
 					</div>
 					<div class="author-option">
 						<div class="author-area">
-							<div class="city-lang">
-								<img src="assets/images/header/01.png" alt="city-lang">
-								<select name="lang" id="lang">
-									<option value="1">ENG</option>
-									<option value="2">BAN</option>
-									<option value="3">ESP</option>
-								</select>
-							</div>
 							<div class="cart-option">
-								<img src="assets/images/header/cart.png" alt="shop-cart">
+								<img src="../assets/images/header/cart.png" alt="shop-cart">
 								<div class="count-item">04</div>
 								<div class="cart-content">
 									<div class="cart-title">
@@ -203,7 +180,7 @@
 												<div class="cart-inner">
 													<div class="cart-top">
 														<div class="thumb">
-															<a href="#"><img src="assets/images/popular-food/01.jpg" alt=""></a>
+															<a href="#"><img src="../assets/images/popular-food/01.jpg" alt=""></a>
 														</div>
 														<div class="content">
 															<a href="#">Split Remedy Split End Shampoo</a>
@@ -227,7 +204,7 @@
 												<div class="cart-inner">
 													<div class="cart-top">
 														<div class="thumb">
-															<a href="#"><img src="assets/images/popular-food/02.jpg" alt=""></a>
+															<a href="#"><img src="../assets/images/popular-food/02.jpg" alt=""></a>
 														</div>
 														<div class="content">
 															<a href="#">Split Remedy Split End Shampoo</a>
@@ -251,7 +228,7 @@
 												<div class="cart-inner">
 													<div class="cart-top">
 														<div class="thumb">
-															<a href="#"><img src="assets/images/popular-food/03.jpg" alt=""></a>
+															<a href="#"><img src="../assets/images/popular-food/03.jpg" alt=""></a>
 														</div>
 														<div class="content">
 															<a href="#">Split Remedy Split End Shampoo</a>
@@ -275,7 +252,7 @@
 												<div class="cart-inner">
 													<div class="cart-top">
 														<div class="thumb">
-															<a href="#"><img src="assets/images/popular-food/04.jpg" alt=""></a>
+															<a href="#"><img src="../assets/images/popular-food/04.jpg" alt=""></a>
 														</div>
 														<div class="content">
 															<a href="#">Split Remedy Split End Shampoo</a>
@@ -317,14 +294,8 @@
 								</div>
 							</div>
 							<div class="author-account">
-								<div class="author-icon">
-									<img src="assets/images/chef/author/08.jpg" alt="author">
-								</div>
 								<div class="author-select">
-									<select name="author-select" id="author-select">
-										<option value="1">My Account </option>
-										<option value="2">Log Out </option>
-									</select>
+                                    
 								</div>
 							</div>
 						</div>
@@ -337,18 +308,16 @@
         <!-- Page Header Section Start Here -->
         <section class="page-header">
             <div class="shape-1">
-                <img src="assets/images/banner/shape/01.png" alt="banner">
+                <img src="../assets/images/banner/shape/01.png" alt="banner">
             </div>
             <div class="shape-2">
-                <img src="assets/images/banner/shape/02.png" alt="banner">
+                <img src="../assets/images/banner/shape/02.png" alt="banner">
             </div>
             <div class="container">
                 <div class="page-title text-center">
-                    <h3>Sanzida Laila Trisha</h3>
+                    <h3 style="margin-left: -500px;">{{ $chef->name }}</h3>
                     <ul class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">HomeChef</a></li>
-                        <li>Sanzida Laila Trisha</li>
+                        <li style="margin-left: -500px;" ><a href="{{ route('home') }}">Home</a></li>
                     </ul>
                 </div>
             </div>
@@ -365,48 +334,43 @@
                                 <div class="chef-item">
                                     <div class="chef-inner">
                                         <div class="chef-thumb">
-                                            <img src="assets/images/chef/01.jpg" alt="food-chef">
+                                            @if (isset($chef->image1))
+                                            <img src="../assets/images/chef/01.jpg" alt="food-chef" style="width: 1000px;">
+                                            @endif
                                         </div>
                                         <div class="chef-content">
                                             <div class="chef-author">
-                                                <img src="assets/images/chef/author/09.jpg" alt="chef-author">
+                                                @if (isset($chef->image1))
+                                                    <img src="/chef_images/{{ $chef->image1 }}" alt="food-chef">
+                                                @endif
                                             </div>
                                             <div class="chef-desc">
                                                 <div class="chef-desc-top">
                                                     <div class="title">
-                                                        <h5>Sanzida laila Trisha</h5>
-                                                        <p>Month Top <a href="#">Homechef</a></p>
-                                                    </div>
-                                                    <div class="scocial-share">
-                                                        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-                                                        <a href="#" class="food-btn"><span><i class="icofont-ui-user"></i> follow</span></a>
+                                                        <h5>{{ $chef->name }}</h5>
+                                                        <p>{{ $chef->position }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="chef-desc-middle">
-                                                    <p>I love to cook for my friends and family . Special expertise of Making Pitha , achar , local food and have passonate to produce and promote organic food...</p>
+                                                    <p style="color: white;">{{ $chef->description }}</p>
                                                     <ul>
-                                                        <li><span>Location</span>: 240 Block Road Mohakhali 1209</li>
-                                                        <li><span>Joined</span>: 02 December 2018</li>
-                                                        <li><span>Delivered</span>: 248+ Orders</li>
-                                                        <li><span>Earned</span>: Tk 1,21,000/=</li>
+                                                        <li><span>Location</span>: {{ $chef->location }}</li>
+                                                        <li><span>Joined</span>: {{ $chef->joined }}</li>
+                                                        <li><span>Delivered</span>: {{ $chef->delivered_orders }} Orders</li>
                                                     </ul>
                                                 </div>
                                                 <div class="chef-footer">
                                                     <div class="chef-menu chef-con">
-                                                        <h6>296</h6>
-                                                        <a href="#">Food Menu</a>
+                                                        <h6>{{ $chef->salary }}$</h6>
+                                                        <a href="#">Salary</a>
                                                     </div>
                                                     <div class="chef-recipe chef-con">
-                                                        <h6>33</h6>
-                                                        <a href="#">Recipe</a>
+                                                        <h6>{{ $chef->age }}</h6>
+                                                        <a href="#">Age</a>
                                                     </div>
                                                     <div class="chef-followers chef-con">
-                                                        <h6>504</h6>
-                                                        <a href="#">Followers</a>
                                                     </div>
                                                     <div class="chef-following chef-con">
-                                                        <h6>333</h6>
-                                                        <a href="#">Following</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -421,34 +385,31 @@
                                         <li class="tablinks" onclick="openCity(event, 'recipe')">
                                             <span>Recipes</span>
                                         </li>
-                                        <li class="tablinks" onclick="openCity(event, 'followers')">
-                                            <span>Followers</span>
-                                        </li>
-                                        <li class="tablinks" onclick="openCity(event, 'following')">
-                                            <span>Following</span>
-                                        </li>
                                     </ul>
                                     <div id="food_menu" class="tabcontent">
                                         <div class="popular-foods">
                                             <div class="section-wrapper">
                                                 <div class="row justify-content-center">
+                                                    @foreach ($cards as $card)
                                                     <div class="col-md-6 col-12">
                                                         <div class="p-food-item">
                                                             <div class="p-food-inner">
                                                                 <div class="p-food-thumb">
-                                                                    <img src="assets/images/popular-food/01.jpg" alt="p-food">
-                                                                    <span>$20 - $30</span>
+                                                                @if (isset($card->image1))
+                                                                    <img src="/card_images/{{ $card->image1 }}" alt="">
+                                                                @endif
+                                                                    <span>{{ $card->price }}din</span>
                                                                 </div>
                                                                 <div class="p-food-content">
                                                                     <div class="p-food-author">
-                                                                        <a href="#"><img src="assets/images/chef/author/01.jpg" alt="food-author"></a>
+                                                                        <a href="#">	
+                                                                        @if (isset($card->image2))
+                                                                            <img src="/card_images/{{ $card->image2 }}" alt="">
+                                                                        @endif</a>
                                                                     </div>
-                                                                    <h6><a href="#">Dragon Express</a></h6>
+                                                                    <h6><a href="#">{{ $card->name }}</a></h6>
                                                                     <div class="p-food-group">
-                                                                        <span>Type of food :</span>
-                                                                        <a href="#">Beef Roast</a>
-                                                                        <a href="#">Pizza</a>
-                                                                        <a href="#">Stakes</a>
+                                                                        <span>Type of food : {{ $card->foodname }}</span>
                                                                     </div>
                                                                     <ul class="del-time">
                                                                         <li>
@@ -486,60 +447,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-12">
-                                                        <div class="p-food-item">
-                                                            <div class="p-food-inner">
-                                                                <div class="p-food-thumb">
-                                                                    <img src="assets/images/popular-food/02.jpg" alt="p-food">
-                                                                    <span>$20 - $30</span>
-                                                                </div>
-                                                                <div class="p-food-content">
-                                                                    <div class="p-food-author">
-                                                                        <a href="#"><img src="assets/images/chef/author/02.jpg" alt="food-author"></a>
-                                                                    </div>
-                                                                    <h6><a href="#">Dragon Express</a></h6>
-                                                                    <div class="p-food-group">
-                                                                        <span>Type of food :</span>
-                                                                        <a href="#">Beef Roast</a>
-                                                                        <a href="#">Pizza</a>
-                                                                        <a href="#">Stakes</a>
-                                                                    </div>
-                                                                    <ul class="del-time">
-                                                                        <li>
-                                                                            <i class="icofont-cycling-alt"></i>
-                                                                            <div class="time-tooltip">
-                                                                                <div class="time-tooltip-holder">
-                                                                                    <span class="tooltip-label">Delivery time
-                                                                                    <span class="tooltip-info">Your order will be delivered in 20 minutes.</span>
-                                                                                </span></div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i class="icofont-stopwatch"></i>
-                                                                            <div class="time-tooltip">
-                                                                                <div class="time-tooltip-holder">
-                                                                                    <span class="tooltip-label">Pickup time</span>
-                                                                                    <span class="tooltip-info">You can pickup order in 20 minutes.
-                                                                                </span></div>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                    <div class="p-food-footer">
-                                                                        <div class="left">
-                                                                            <div class="rating">
-                                                                                <i class="icofont-star"></i>
-                                                                                <i class="icofont-star"></i>
-                                                                                <i class="icofont-star"></i>
-                                                                                <i class="icofont-star"></i>
-                                                                                <i class="icofont-star"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="right"><i class="icofont-home"></i>6th Avenue New York</div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         </div>
@@ -551,7 +459,7 @@
                                                     <div class="col-md-6 col-12">
                                                         <div class="recipe-item">
                                                             <div class="recipe-thumb">
-                                                                <a href="#"> <img src="assets/images/food-recipe/01.jpg" alt="food-recipe"></a>
+                                                                <a href="#"> <img src="../assets/images/food-recipe/01.jpg" alt="food-recipe"></a>
                                                             </div>
                                                             <div class="recipe-content">
                                                                 <div class="meta-tag">
@@ -571,7 +479,7 @@
                                                                 <div class="meta-post">
                                                                     <ul>
                                                                         <li>
-                                                                            <img src="assets/images/meta-post/recipe/01.jpg" alt="food-recipe">
+                                                                            <img src="../assets/images/meta-post/recipe/01.jpg" alt="food-recipe">
                                                                             <a href="#" class="author">Hunter Max </a>
                                                                         </li>
                                                                         <li>
@@ -586,7 +494,7 @@
                                                     <div class="col-md-6 col-12">
                                                         <div class="recipe-item">
                                                             <div class="recipe-thumb">
-                                                                <a href="#"> <img src="assets/images/food-recipe/02.jpg" alt="food-recipe"></a>
+                                                                <a href="#"> <img src="../assets/images/food-recipe/02.jpg" alt="food-recipe"></a>
                                                             </div>
                                                             <div class="recipe-content">
                                                                 <div class="meta-tag">
@@ -606,7 +514,7 @@
                                                                 <div class="meta-post">
                                                                     <ul>
                                                                         <li>
-                                                                            <img src="assets/images/meta-post/recipe/01.jpg" alt="food-recipe">
+                                                                            <img src="../assets/images/meta-post/recipe/01.jpg" alt="food-recipe">
                                                                             <a href="#" class="author">Hunter Max </a>
                                                                         </li>
                                                                         <li>
@@ -629,7 +537,7 @@
                                                     <div class="col-lg-4 col-md-6 col-12">
                                                         <div class="product-item">
                                                             <div class="product-thumb">
-                                                                <img src="assets/images/chef/author/07.jpg" alt="food-product">
+                                                                <img src="../assets/images/chef/author/07.jpg" alt="food-product">
                                                             </div>
                                                             <div class="product-content">
                                                                 <h6><a href="#">Sanzida laila Trisha</a></h6>
@@ -639,7 +547,7 @@
                                                     <div class="col-lg-4 col-md-6 col-12">
                                                         <div class="product-item">
                                                             <div class="product-thumb">
-                                                                <img src="assets/images/chef/author/08.jpg" alt="food-product">
+                                                                <img src="../assets/images/chef/author/08.jpg" alt="food-product">
                                                             </div>
                                                             <div class="product-content">
                                                                 <h6><a href="#">Jinnat Raihun Sumi</a></h6>
@@ -649,7 +557,7 @@
                                                     <div class="col-lg-4 col-md-6 col-12">
                                                         <div class="product-item">
                                                             <div class="product-thumb">
-                                                                <img src="assets/images/chef/author/09.jpg" alt="food-product">
+                                                                <img src="../assets/images/chef/author/09.jpg" alt="food-product">
                                                             </div>
                                                             <div class="product-content">
                                                                 <h6><a href="#">Shahana Anam Khan</a></h6>
@@ -667,7 +575,7 @@
                                                     <div class="col-lg-4 col-md-6 col-12">
                                                         <div class="product-item">
                                                             <div class="product-thumb">
-                                                                <img src="assets/images/chef/author/09.jpg" alt="food-product">
+                                                                <img src="../assets/images/chef/author/09.jpg" alt="food-product">
                                                             </div>
                                                             <div class="product-content">
                                                                 <h6><a href="#">Shahin Anam Khan</a></h6>
@@ -677,7 +585,7 @@
                                                     <div class="col-lg-4 col-md-6 col-12">
                                                         <div class="product-item">
                                                             <div class="product-thumb">
-                                                                <img src="assets/images/chef/author/07.jpg" alt="food-product">
+                                                                <img src="../assets/images/chef/author/07.jpg" alt="food-product">
                                                             </div>
                                                             <div class="product-content">
                                                                 <h6><a href="#">Jinnat Raihun</a></h6>
@@ -687,7 +595,7 @@
                                                     <div class="col-lg-4 col-md-6 col-12">
                                                         <div class="product-item">
                                                             <div class="product-thumb">
-                                                                <img src="assets/images/chef/author/08.jpg" alt="food-product">
+                                                                <img src="../assets/images/chef/author/08.jpg" alt="food-product">
                                                             </div>
                                                             <div class="product-content">
                                                                 <h6><a href="#">Shadhaf Khan</a></h6>
@@ -709,99 +617,36 @@
                                             <h6>Browse Food Category</h6>
                                         </div>
                                         <div class="section-wrapper">
+                                            @foreach ($cat as $cat)
                                             <div class="food-item">
                                                 <div class="food-inner">
                                                     <div class="food-thumb">
-                                                        <a href="#"><img src="assets/images/food/01.png" alt="food"></a>
+                                                        <a href="#">
+                                                        @if (isset($cat->image1))
+                                                            <img src="/card_images/{{ $cat->image1 }}" alt="">
+                                                        @endif</a></a>
                                                     </div>
                                                     <div class="food-content">
-                                                        <a href="#">Breakfast</a>
+                                                    <a href="{{  route('recipe',['id'=>$cat->id])}}">{{ $cat->foodname }}</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="food-item">
-                                                <div class="food-inner">
-                                                    <div class="food-thumb">
-                                                        <a href="#"><img src="assets/images/food/02.png" alt="food"></a>
-                                                    </div>
-                                                    <div class="food-content">
-                                                        <a href="#">Lunch</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="food-item">
-                                                <div class="food-inner">
-                                                    <div class="food-thumb">
-                                                        <a href="#"><img src="assets/images/food/03.png" alt="food"></a>
-                                                    </div>
-                                                    <div class="food-content">
-                                                        <a href="#">Dinner</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="food-item">
-                                                <div class="food-inner">
-                                                    <div class="food-thumb">
-                                                        <a href="#"><img src="assets/images/food/04.png" alt="food"></a>
-                                                    </div>
-                                                    <div class="food-content">
-                                                        <a href="#">Drink</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="food-item">
-                                                <div class="food-inner">
-                                                    <div class="food-thumb">
-                                                        <a href="#"><img src="assets/images/food/05.png" alt="food"></a>
-                                                    </div>
-                                                    <div class="food-content">
-                                                        <a href="#">Juice</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="food-item">
-                                                <div class="food-inner">
-                                                    <div class="food-thumb">
-                                                        <a href="#"><img src="assets/images/food/06.png" alt="food"></a>
-                                                    </div>
-                                                    <div class="food-content">
-                                                        <a href="#">Coffee</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="food-item">
-                                                <div class="food-inner">
-                                                    <div class="food-thumb">
-                                                        <a href="#"><img src="assets/images/food/07.png" alt="food"></a>
-                                                    </div>
-                                                    <div class="food-content">
-                                                        <a href="#">Tea</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="food-item">
-                                                <div class="food-inner">
-                                                    <div class="food-thumb">
-                                                        <a href="#"><img src="assets/images/food/08.png" alt="food"></a>
-                                                    </div>
-                                                    <div class="food-content">
-                                                        <a href="#">Beef Roast</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            @endforeach
                                     </div>
                                     <div class="contact-from">
-                                        <div class="section-header">
-                                            <h6>Register Now</h6>
-                                        </div>
-                                        <form action="/">
+                                        <form action="{{ route('allChefs.contactChef') }}" method="get">
+                                            @csrf
                                             <input type="text" name="name" placeholder="Full Name*">
                                             <input type="email" name="email" placeholder="Your Eamil*">
                                             <input type="number" name="number" placeholder="Phone Number">
                                             <input type="submit" value="Contact Chef">
                                         </form>
                                     </div>
+                                    @if (Session::get('finished'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ Session::get('finished') }}
+                                    </div>
+                                 @endif
                                 </div>
                             </aside>
                         </div>
@@ -819,7 +664,7 @@
 				<div class="footer-top">
 					<div class="footer-area text-center">
 						<div class="footer-logo">
-							<a href="index.html"><img src="assets/images/header/footer/01.png" alt="footer-logo"></a>
+							<a href="index.html"><img src="../assets/images/header/footer/01.png" alt="footer-logo"></a>
 						</div>
 						<div class="scocial-media">
 							<a href="#" class="facebook"><i class="icofont-facebook"></i></a>
@@ -829,11 +674,9 @@
 						</div>
 						<div class="footer-menu">
 							<ul>
-								<li><a href="#">Home</a></li>
-								<li><a href="#">How it works?</a></li>
-								<li><a href="#">Menus</a></li>
-								<li><a href="#">Chefs</a></li>
-								<li><a href="#">Recipes</a></li>
+								<li><a href="{{  route('home') }}">Home</a></li>
+								<li><a href="{{  route('category') }}">Menus</a></li>
+								<li><a href="{{  route('allChefs') }}">Chefs</a></li>
 								<li><a href="#">Contact</a></li>
 							</ul>
 						</div>
@@ -853,16 +696,16 @@
 
 
 		
-		<script src="assets/js/jquery.js"></script>
-		<script src="assets/js/waypoints.min.js"></script>
-		<script src="assets/js/bootstrap.min.js"></script>
-		<script src="assets/js/isotope.pkgd.min.js"></script>
-		<script src="assets/js/wow.min.js"></script>
-		<script src="assets/js/tab.js"></script>
-		<script src="assets/js/lightcase.js"></script>
-		<script src="assets/js/swiper.min.js"></script>
-		<script src="assets/js/jquery.counterup.min.js"></script>
-		<script src="assets/js/functions.js"></script>
+		<script src="../assets/js/jquery.js"></script>
+		<script src="../assets/js/waypoints.min.js"></script>
+		<script src="../assets/js/bootstrap.min.js"></script>
+		<script src="../assets/js/isotope.pkgd.min.js"></script>
+		<script src="../assets/js/wow.min.js"></script>
+		<script src="../assets/js/tab.js"></script>
+		<script src="../assets/js/lightcase.js"></script>
+		<script src="../assets/js/swiper.min.js"></script>
+		<script src="../assets/js/jquery.counterup.min.js"></script>
+		<script src="../assets/js/functions.js"></script>
 	</body>
 </html>
 @endsection

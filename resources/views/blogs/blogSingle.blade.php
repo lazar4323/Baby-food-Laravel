@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-	About page
+	Blog page
 @endsection
 
 @section('content')
@@ -13,25 +13,29 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		
 		<!-- favicon -->
-		<link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
+		<link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png">
 		<!-- animate scss -->
-		<link rel="stylesheet" href="assets/css/animate.css">
+		<link rel="stylesheet" href="/assets/css/animate.css">
 		<!-- bootstarp css -->
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 		<!-- icofont -->
-		<link rel="stylesheet" href="assets/css/icofont.min.css">
+		<link rel="stylesheet" href="/assets/css/icofont.min.css">
 		<!-- lightcase css -->
-		<link rel="stylesheet" href="assets/css/lightcase.css">
+		<link rel="stylesheet" href="/assets/css/lightcase.css">
 		<!-- swiper css -->
-		<link rel="stylesheet" href="assets/css/swiper.min.css">
+		<link rel="stylesheet" href="/assets/css/swiper.min.css">
 		<!-- cusyom scss -->
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
         
-		<title>Mezban About</title>
+		<title>Mezban Blog Single Page</title>
 	</head>
 
 	<body>
-
+		<!-- preloader -->
+		<div class="preloader"><div class="load loade"><hr/><hr/><hr/><hr/></div></div>
+        <!-- preloader -->
+        
+        
         <!-- search area -->
         <div class="search-area">
             <div class="search-input">
@@ -50,7 +54,7 @@
 		<div class="mobile-menu">
 			<nav class="mobile-header d-xl-none">
 				<div class="header-logo">
-					<a href="index.html" class="logo"><img src="assets/images/logo/01.png" alt="logo"></a>
+					<a href="index.html" class="logo"><img src="/assets/images/logo/01.png" alt="logo"></a>
 				</div>
 				<div class="header-bar">
 					<span></span>
@@ -67,16 +71,22 @@
 						</div>
 						<ul>
                             <li>
-                                <a href="{{ route('home') }}">Home</a>
+                                <a href="#0">Home</a>
+                                <ul>
+                                    <li><a href="index.html">Home Page One</a></li>
+                                    <li><a href="index-2.html">Home Page Two</a></li>
+                                    <li><a href="index-3.html">Home Page Three</a></li>
+                                    <li><a href="index-4.html">Home Page Four</a></li>
+                                </ul>
                             </li>
-                            <li><a class="active" href="#">About</a></li>
+                            <li><a href="about.html">About</a></li>
                             <li>
                                 <a href="#0">Pages</a>
                                 <ul>
                                     <li>
                                         <a href="#0">Category</a>
                                         <ul>
-                                            <li><a href="{{ route('category') }}">Food Category</a></li>
+                                            <li><a href="food-menu.html">Food Category</a></li>
                                             <li><a href="menu-card.html">Category style 1</a></li>
                                             <li><a href="menu-card-2.html">Category style 2</a></li>
                                         </ul>
@@ -94,10 +104,10 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#0">Blog</a>
+                                <a class="active" href="#0">Blog</a>
                                 <ul>
                                     <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="blog-single.html">Blog Single</a></li>
+                                    <li><a class="active" href="blog-single.html">Blog Single</a></li>
                                 </ul>								
                             </li>
                             <li>
@@ -128,58 +138,61 @@
             <div class="container">
                 <div class="header-area">
                     <div class="logo">
-                        <a href="index.html"><img src="assets/images/logo/01.png" alt="logo"></a>
+                        <a href="index.html"><img src="/assets/images/logo/01.png" alt="logo"></a>
                     </div>
                     <div class="main-menu">
                         <ul>
                             <li>
-                            <a href="{{ route('home') }}">Home</a>
+                                <a href="{{  route('home') }}">Home</a>
                             </li>
-                            <li><a class="active" href="about.html">About</a></li>
+                            <li><a href="{{  route('about') }}">About</a></li>
                             <li>
                                 <a href="#0">Pages</a>
                                 <ul>
                                     <li>
                                         <a href="#0">Category</a>
                                         <ul>
-                                            <li><a href="{{ route('category') }}">Food menu</a></li>
-                                            <li><a href="{{ route('categories') }}">Categories</a></li>
+                                            <li><a href="{{  route('category') }}">Food Category</a></li>
+                                            <li><a href="{{  route('categories') }}">Categories</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="#0">Chef</a>
                                         <ul>
-                                            <li><a href="{{ route('allChefs') }}">All Chefs</a></li>
+                                            <li><a href="{{  route('allChefs') }}">All chefs</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#0">Blog</a>
+                                <a class="active" href="#0">Blog</a>
                                 <ul>
-                                    <li><a href="{{ route('blog') }}">Blog</a></li>
+                                    <li><a href="{{  route('blog') }}">Blog</a></li>
                                 </ul>								
                             </li>
                             <li>
                                 <a href="#0">Shop</a>
                                 <ul>
-                                    <li><a href="{{route('shop')}}">Shop Page</a></li>
+                                    <li><a href="{{ route('shop') }}">Shop Page</a></li>
                                 </ul>
                             </li>						
                             <li><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                     </div>
-                    <d  iv class="author-option">
+                    <div class="author-option">
                         <div class="author-area">
                             <div class="author-account">
                                 <i class="icofont-ui-user"></i>
                                 <div class="author-select">
-                                    @include('auth.check')
+                                    <select name="author-select" id="author-select">
+                                        <option value="1">My Account </option>
+                                        <option value="2">Log Out </option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="cart-option">
                                 <div class="cart-icon">
-                                    <img src="assets/images/header/cart-2.png" alt="shop-cart">
+                                    <img src="/assets/images/header/cart-2.png" alt="shop-cart">
                                 </div>
 								<div class="count-item">04</div>
                                 <div class="cart-content">
@@ -193,7 +206,7 @@
                                                 <div class="cart-inner">
                                                     <div class="cart-top">
                                                         <div class="thumb">
-                                                            <a href="#"><img src="assets/images/popular-food/01.jpg" alt=""></a>
+                                                            <a href="#"><img src="/assets/images/popular-food/01.jpg" alt=""></a>
                                                         </div>
                                                         <div class="content">
                                                             <a href="#">Split Remedy Split End Shampoo</a>
@@ -217,7 +230,7 @@
                                                 <div class="cart-inner">
                                                     <div class="cart-top">
                                                         <div class="thumb">
-                                                            <a href="#"><img src="assets/images/popular-food/02.jpg" alt=""></a>
+                                                            <a href="#"><img src="/assets/images/popular-food/02.jpg" alt=""></a>
                                                         </div>
                                                         <div class="content">
                                                             <a href="#">Split Remedy Split End Shampoo</a>
@@ -241,7 +254,7 @@
                                                 <div class="cart-inner">
                                                     <div class="cart-top">
                                                         <div class="thumb">
-                                                            <a href="#"><img src="assets/images/popular-food/03.jpg" alt=""></a>
+                                                            <a href="#"><img src="/assets/images/popular-food/03.jpg" alt=""></a>
                                                         </div>
                                                         <div class="content">
                                                             <a href="#">Split Remedy Split End Shampoo</a>
@@ -265,7 +278,7 @@
                                                 <div class="cart-inner">
                                                     <div class="cart-top">
                                                         <div class="thumb">
-                                                            <a href="#"><img src="assets/images/popular-food/04.jpg" alt=""></a>
+                                                            <a href="#"><img src="/assets/images/popular-food/04.jpg" alt=""></a>
                                                         </div>
                                                         <div class="content">
                                                             <a href="#">Split Remedy Split End Shampoo</a>
@@ -320,142 +333,129 @@
         <section class="page-header style-2">
             <div class="container">
                 <div class="page-title text-center">
-                    <h3>About</h3>
+                    <h3>{{$blog->title}}</h3>
                     <ul class="breadcrumb">
-                        <li><a href="{{ route('home') }}">Home</a></li>
-                        <li>About</li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
             </div>
         </section>
         <!-- Page Header Section Ending Here -->
 
-        
-        <!-- About Section Start here -->
-		<section class="about about-page padding-tb">
+		
+        <!-- Blog Page Section Start Here -->
+        <div class="blog-section blog-page blog-single padding-tb">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-12">
-                        <div class="about-thumb">
-                            <img src="assets/images/about/01.png" alt="about-food">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-12">
-                        <div class="about-content">
-                            <div class="section-header">
-                                <span>Welcome Mezban</span>
-                                <h3>About Restaurant History!</h3>
-                            </div>
-                            <div class="section-wrapper">
-                                <p>Synergistca conceptualize leveraged inte ectual capital through virtual and the a and Proactiviely initiate lrisk highyield a platforms after realtme froms growth that awesome tently matrix robusti method powerm foistcky Sytical concepta leved ntelectua anding capita hrough virtua nteectua that capta the and Proactiviely initiate low risk highyield platforms after realtme froms that there andin Proctive initate low risk high yeld platform aftering Conven iterate optimal paradigms reliable techno</p>
-                                <a href="#" class="food-btn style-2"><span>get diraction</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-		<!-- About Section Ending here -->
-
-        <!-- Popular Home Chef Section Start Here -->
-		<section class="popular-chef padding-tb" style="background-color: #fafeff;">
-			<div class="container">
-				<div class="section-header">
-					<h3>Popular HomeChef</h3>
-					<p>Completely network impactful users whereas next-generation applications engage out thinking via tactical action.</p>
-				</div>
-				<div class="section-wrapper">
-					<div class="row justify-content-center">
-						<div class="col-xl-4 col-md-6 col-12">
-                            @foreach ($chefs as $chef)
-							<div class="chef-item">
-								<div class="chef-inner">
-									<div class="chef-thumb">
-                                        @if (isset($chef->image1))
-                                            <img src="/chef_images/{{ $chef->image1 }}" alt="food-chef">
-                                        @endif
-									</div>
-									<div class="chef-content">
-										<div class="chef-author">
-											<a href="{{ route('allChefs.showChef',['id'=>$chef->id]) }}">
-                                                @if (isset($chef->image2))
-                                                    <img src="/chef_images/{{ $chef->image2 }}" alt="food-chef">
-                                                @endif
-											</a>
-										</div>
-										<h5><a href="{{ route('allChefs.showChef',['id'=>$chef->id]) }}">{{ $chef->name }}</a></h5>
-										<p>{{ $chef->position }}</p>
-										<div class="scocial-share">
-											<a href="{{ route('allChefs.showChef',['id'=>$chef->id]) }}" class="food-btn"><span><i class="icofont-ui-user"></i> contact</span></a>
-										</div>
-										<div class="chef-footer">
-											<div class="chef-earn chef-con">
-												<h6>{{ rand(100,300) }}$</h6>
-												<a href="#">Earned</a>
-											</div>
-											<div class="chef-menu chef-con">
-												<h6>{{ rand(30,35) }}</h6>
-												<a href="#">Age</a>
-											</div>
-											<div class="chef-recipe chef-con">
-												<h6>33</h6>
-												<a href="#">Recipe</a>
-											</div>
-										</div>
-									</div>
-								</div>
-                            </div>
-                            @endforeach
-						</div>
-	    	</section>
-		<!-- Popular Home Chef Section Ending Here -->
-
-
-        <!-- Booking Table Section Start Here -->
-        <section class="booking-table padding-tb">
-            <div class="shape-1">
-                <img src="assets/images/banner/shape/02.png" alt="banner">
-            </div>
-            <div class="shape-2">
-                <img src="assets/images/banner/shape/02.png" alt="banner">
-            </div>s
-            <div class="container">
-                <div class="section-header">
-                    <h3>Book a Online Table</h3>
-                    <p>Completely network impactful users whereas next-generation applications engage out thinking via tactical action.</p>
-                </div>
                 <div class="section-wrapper">
-                    <div class="row justify-content-center align-items-center">
-                        <div class="col-lg-6 col-12">
-                            <div class="bg-table"></div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-12">
+                            <article>
+                                <div class="post-item">
+                                    <div class="post-inner">
+                                        <div class="post-thumb">
+                                            <img src="/chef_images/{{ $blog->image }}" alt="blog">
+                                        </div>
+                                        <div class="post-content">
+                                            <h4>{{ $blog->title }}</h4>
+                                            <div class="meta-post">
+                                                <ul>
+                                                    <li>
+                                                        <i class="icofont-calendar"></i>
+                                                        <a class="date">{{$blog->created_at }}</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <p>{{ $blog->description }}</p>
+
+                                            <img src="/chef_images/{{ $blog->image }}" alt="blog-single">
+
+                                            <p>{{ $blog->description }}</p>
+
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div id="comments" class="comments">
+                                    <h4 class="title-border">02 Comment</h4>
+                                    <ul class="comment-list">
+                                        <li class="comment" id="li-comment-1">
+                                            <div class="com-thumb">
+                                                <img alt="" src="/assets/images/chef/author/01.jpg" srcset="/assets/images/chef/author/01.jpg" class="avatar avatar-90 photo" height="90" width="90">          
+                                            </div>
+                                            <div class="com-content">
+                                                <div class="com-title">
+                                                    <div class="com-title-meta">
+                                                        <h6><a href="http://Sk" rel="external nofollow" class="url">Linsa Faith</a></h6>
+                                                        <span> October 5, 2018 at 12:41 pm </span>
+                                                    </div>
+                                                    <span class="reply">
+                                                        <a rel="nofollow" class="comment-reply-link" href="#" aria-label="Reply to Masum"><i class="icofont-reply-all"></i>Reply</a>        
+                                                    </span>
+                                                </div>
+                                                <p>The inner sanctuary, I throw myself down among the tall grass bye the trckli stream and, as I lie close to the earth</p>
+                                                <div class="reply-btn"></div>
+                                            </div>
+                                            <ul class="comment-list">
+                                                <li class="comment" id="li-comment-2">
+                                                    <div class="com-thumb">
+                                                        <img alt="" src="/assets/images/chef/author/02.jpg" srcset="/assets/images/chef/author/02.jpg" class="avatar avatar-90 photo" height="90" width="90">
+                                                    </div>
+                                                    <div class="com-content">
+                                                        <div class="com-title">
+                                                            <div class="com-title-meta">
+                                                                <h6><a href="http://Sk" rel="external nofollow" class="url">James Jusse</a></h6>
+                                                                <span> October 5, 2018 at 12:41 pm </span>
+                                                            </div>
+                                                            <span class="reply">
+                                                                <a rel="nofollow" class="comment-reply-link" href="#" aria-label="Reply to Masum"><i class="icofont-reply-all"></i>Reply</a>                        
+                                                            </span>
+                                                        </div>
+                                                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings spring which I enjoy with my whole heart</p>
+                                                        <div class="reply-btn"></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div id="respond" class="comment-respond">
+                                    <h4 class="title-border">Leave a Comment</h4>
+                                    <div class="add-comment">
+                                        <form action="#" method="post" id="commentform" class="comment-form">
+                                            <input name="name" type="text" value="" placeholder="Name">
+                                            <input name="email" type="text" value="" placeholder="Email">
+                                            <input name="url" type="text" value="" placeholder="Subject">
+                                            <textarea id="comment-reply" name="comment" rows="5" placeholder="Type Here Your Comment"></textarea>
+                                            <p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"><label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+                                            <button type="submit" class="food-btn"><span>send comment</span></button>
+                                            <!-- <a href="#0" class="food-btn"><span>send comment</span></a> -->
+                                        </form>
+                                    </div>			
+                                </div>
+                            </article>
                         </div>
-                        <div class="col-lg-6 col-12">
-                            <div class="contact-form">
-                            <form action="{{ route('about.bookTable') }}" method="get">
-                                @csrf
-                                    <input type="text" name="name" placeholder="Full Name*">
-                                    <input type="email" name="email" placeholder="Your Eamil*">
-                                    <input type="text" name="number" placeholder="Phone Number">
-                                    <input type="time" name="time" placeholder="Time">
-                                    <input type="number" name="size" placeholder="Size">
-                                    <input type="date" name="date" data-provide="datepicker">
-                                    <textarea name="message" rows="6" placeholder="Message"></textarea>
-                                    <button type="submit" class="food-btn style-2"><span>book a table</span></button>
-                                </form>
-							</div>
-                        </div>
+                        <div class="col-lg-4 col-md-7 col-12">
+                            <aside>
+                                <div class="widget widget-search">
+                                    <div class="search-wrapper">
+                                        <input type="text" name="s" placeholder="Your Search...">
+                                        <button type="submit"><i class="icofont-search-2"></i></button>
+                                    </div>
+                                </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Booking Table Section Ending Here -->
+        </div>
+        <!-- Blog Page Section Ending Here -->
 
 
-        <!-- Sponsor Section Start Here -->
-
-        <!-- Sponsor Section Ending Here -->
-
-        <!-- Newsletter Section Start Here -->
+		<!-- Newsletter Section Start Here -->
         <div class="news-letter">
             <div class="container">
                 <div class="section-wrapper">
@@ -482,7 +482,7 @@
 				<div class="footer-top">
 					<div class="footer-area text-center">
 						<div class="footer-logo">
-							<a href="index.html"><img src="assets/images/header/footer/01.png" alt="footer-logo"></a>
+							<a href="index.html"><img src="/assets/images/header/footer/01.png" alt="footer-logo"></a>
 						</div>
 						<div class="scocial-media">
 							<a href="#" class="facebook"><i class="icofont-facebook"></i></a>
@@ -492,9 +492,9 @@
 						</div>
 						<div class="footer-menu">
 							<ul>
-								<li><a href="{{ route('home') }}">Home</a></li>
-								<li><a href="{{ route('category') }}">Menus</a></li>
-								<li><a href="{{ route('allChefs') }}">Chefs</a></li>
+								<li><a href="{{  route('home') }}">Home</a></li>
+								<li><a href="{{  route('category') }}">Menus</a></li>
+								<li><a href="{{  route('allChefs') }}">Chefs</a></li>
 								<li><a href="#">Contact</a></li>
 							</ul>
 						</div>
@@ -507,21 +507,22 @@
 		</footer>
         <!-- Footer Section Ending Here -->
         
+
         <!-- scrollToTop start here -->
 		<a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
 		<!-- scrollToTop ending here -->
 
 
-		
-		<script src="assets/js/jquery.js"></script>
-		<script src="assets/js/waypoints.min.js"></script>
-		<script src="assets/js/bootstrap.min.js"></script>
-		<script src="assets/js/isotope.pkgd.min.js"></script>
-		<script src="assets/js/wow.min.js"></script>
-		<script src="assets/js/swiper.min.js"></script>
-		<script src="assets/js/lightcase.js"></script>
-		<script src="assets/js/jquery.counterup.min.js"></script>
-        <script src="assets/js/functions.js"></script>
-	</body>
+        
+        <script src="/assets/js/jquery.js"></script>
+        <script src="/assets/js/waypoints.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+        <script src="/assets/js/isotope.pkgd.min.js"></script>
+        <script src="/assets/js/wow.min.js"></script>
+        <script src="/assets/js/swiper.min.js"></script>
+        <script src="/assets/js/lightcase.js"></script>
+        <script src="/assets/js/jquery.counterup.min.js"></script>
+        <script src="/assets/js/functions.js"></script>
+    </body>
 </html>
 @endsection
