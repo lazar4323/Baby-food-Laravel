@@ -156,32 +156,24 @@
                                     <li>
                                         <a href="#0">Chef</a>
                                         <ul>
-                                            <li><a href="{{ route('allChefs') }}">Home Chef</a></li>
-                                            <li><a href="{{ route('chefSingle') }}">Home Chef Single</a></li>
+                                            <li><a href="{{ route('allChefs') }}">All Chefs</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="recepi-single.html">Single Recipe</a></li>
-                                    <li><a href="404.html">404 Page</a></li>
-                                    <li><a href="coming-soon.html">Coming Soon Page</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#0">Blog</a>
                                 <ul>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="blog-single.html">Blog Single</a></li>
+                                    <li><a class="active" href="{{ route('blog') }}">Blog</a></li>
                                 </ul>								
                             </li>
                             <li>
                                 <a href="#0">Shop</a>
                                 <ul>
-                                    <li><a href="shop-page.html">Shop Page</a></li>
-                                    <li><a href="shop-single.html">Shop Single style-1</a></li>
-                                    <li><a href="shop-single-2.html">Shop Single style-2</a></li>
-                                    <li><a href="cart-page.html">Cart Page</a></li>
+                                    <li><a href="{{ route('shop') }}">Shop Page</a></li>
                                 </ul>
                             </li>						
-                            <li><a href="contact-us.html">Contact</a></li>
+                            <li><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                     </div>
                     <div class="author-option">
@@ -189,10 +181,7 @@
                             <div class="author-account">
                                 <i class="icofont-ui-user"></i>
                                 <div class="author-select">
-                                    <select name="author-select" id="author-select">
-                                        <option value="1">My Account </option>
-                                        <option value="2">Log Out </option>
-                                    </select>
+                                    @include('auth.check');
                                 </div>
                             </div>
                             <div class="cart-option">

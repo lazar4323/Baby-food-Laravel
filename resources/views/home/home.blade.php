@@ -1,9 +1,7 @@
 @extends('layouts.app')
-
 @section('title')
 	Home page
 @endsection
-
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +9,6 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
 		<!-- favicon -->
 		<link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
 		<!-- animate scss -->
@@ -26,10 +23,8 @@
 		<link rel="stylesheet" href="assets/css/swiper.min.css">
 		<!-- custom scss -->
 		<link rel="stylesheet" href="assets/css/style.css">
-
 		<title>Home</title>
 	</head>
-
 	<body>
 		
 		<!-- Mobile Menu Start Here -->
@@ -94,9 +89,10 @@
                                     <li><a href="shop-page.html">Shop Page</a></li>
                                     <li><a href="shop-single.html">Shop Single style-1</a></li>
                                     <li><a href="cart-page.html">Cart Page</a></li>
+                                    <li><a href="{{ route('shop') }}">Shop Page</a></li>
                                 </ul>
                             </li>						
-                            <li><a href="contact-us.html">Contact</a></li>
+                            <li><a href="{{ route('contact')}}">Contact</a></li>
                         </ul>
 						<div class="scocial-media">
 							<a href="#" class="facebook"><i class="icofont-facebook"></i></a>
@@ -109,20 +105,14 @@
 			</nav>
 		</div>
 		<!-- Mobile Menu Ending Here -->
-
-
-
 		<!-- header section start -->
 		<header class="header-section d-xl-block d-none">
-
 			<div class="container-fluid">
-
 				<div class="header-area">
 
 					<div class="logo">
 						<a href="index.html"><img src="assets/images/logo/01.png" alt="logo"></a>
 					</div>
-
 
 					<div class="main-menu">
 						<ul>
@@ -130,7 +120,7 @@
 								<a href="">@include('auth.check')</a><br>
 							</li>
                             <li>
-							<a class="{{ (route('home')) ? 'active' : '' }}  " href="{{ route('home') }}">Home</a>
+							<a class="active" href="{{ route('home') }}">Home</a>
                             </li>
                             <li><a class="#0" href="{{ route('about') }}">About</a></li>
                             <li>
@@ -147,30 +137,23 @@
                                         <a href="#0">Chef</a>
                                         <ul>
                                             <li><a href="{{ route('allChefs') }}">All Chefs</a></li>
-                                            <li><a href="{{ route('chefSingle') }}">Home Chef Single</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="recepi-single.html">Single Recipe</a></li>
-                                    <li><a href="404.html">404 Page</a></li>
-                                    <li><a href="coming-soon.html">Coming Soon Page</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#0">Blog</a>
                                 <ul>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="blog-single.html">Blog Single</a></li>
+                                    <li><a href="{{ route('blog') }}">Blog</a></li>
                                 </ul>								
                             </li>
                             <li>
                                 <a href="#0">Shop</a>
                                 <ul>
-                                    <li><a href="shop-page.html">Shop Page</a></li>
-                                    <li><a href="shop-single.html">Shop Single style-1</a></li>
-                                    <li><a href="cart-page.html">Cart Page</a></li>
+									<li><a href="{{ route('shop') }}">Shop Page</a></li>
                                 </ul>
                             </li>						
-                            <li><a href="contact-us.html">Contact</a></li>
+                            <li><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
 					</div>
 					<div class="author-option">
@@ -240,14 +223,12 @@
 							</div>
 						<a href="{{ route('home.addDeposit') }}" class="btn btn-secondary">Add deposit</a>
 						<a class="btn btn-info " href="">Deposit: {{ (Auth::user()->deposit) ? Auth::user()->deposit : 0 }}</a>
-						<a class="btn btn-warning" href="{{ route('home.showCardForm') }}">Create card</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</header>
 		<!-- header section ending -->
-
 		<!-- Banner Section Start Here -->
 		<section class="banner">
 			<div class="shape-1">
@@ -273,8 +254,6 @@
 			</div>
 		</section>
 		<!-- Banner Section Ending Here -->
-
-
 		<!-- Food Catagory Section Start here -->
 		<section class="food-category padding-tb" style="background-image: url(assets/css/bg-image/category-bg.jpg); background-size: cover;">
 			<div class="container">
@@ -295,21 +274,18 @@
 											@endif</a>
 										</div>
 										<div class="food-content">
-											<a href="#">{{ $card->foodname }}</a>
+											<a href="{{ route('recipe',['id'=>$card->id]) }}">{{ $card->foodname }}</a>
 										</div>
 								</div>
 								@endforeach
 							</div>
 						</div>
 						<div class="food-slider-next"><i class="icofont-double-left"></i></div>
-						<div class="food-slider-prev"><i class="icofont-double-right"></i>
-						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 		<!-- Food Catagory Section Ending here -->
-
 		<!-- Food Services Section Start here -->
 		<section class="food-services padding-tb">
 			<div class="container">
@@ -366,7 +342,6 @@
 			</div>
 		</section>
 		<!-- Food Services Section Ending here -->
-
 		<!-- Popular Food Section Start Here -->
 		<section class="popular-foods padding-tb" style="background-color: #fafeff;">
 			<div class="container">
@@ -390,15 +365,16 @@
 								<div class="p-food-content">
 									<div class="p-food-author">
 										<a href="#">
+										<a>
 										@if(isset($card->image2))
 											<img src="/card_images/{{ $card->image2 }}" alt="">
 										@endif
 										</a>
 									</div>	
-									<h6><a href="#">{{ $card->name }}</a></h6>
+									<h6><a>{{ $card->name }}</a></h6>
 									<div class="p-food-group">
 									<span>Type of food : </span>
-										<a href="#">{{ $card->foodname }}</a>
+										<a href="{{ route('recipe',['id'=>$card->id]) }}">{{ $card->foodname }}</a>
 									</div>
 									<ul class="del-time">
 										<li>
@@ -428,9 +404,6 @@
 											<a href="{{ route('home.buyFood',['id'=>$card->id])}}" class="btn btn-success m-2 " >Buy item</a>
 										</div>
 										<div class="">
-											<a href="{{ route('home.editCardView',['id'=>$card->id])}}" class="btn btn-info m-2 " >Edit card</a>
-										</div>
-										<div class="">
 											<a href="{{ route('home')}}" class="btn btn-primary m-2 " >Add to cart</a>
 										</div>
 									</div>
@@ -453,10 +426,8 @@
 		  @endif
 		</section>
 		<!-- Popular Food Section Ending Here -->
-
 		<!-- Food Apps Section Start here -->
 		<!-- Food Apps Section Start here -->
-
 		<!-- Popular Food Section Style 2 Start Here -->
 		<section class="popular-foods padding-tb">
 			<div class="container">
@@ -477,13 +448,14 @@
 										<span>{{ $card->price}} din</span>
 									</div>
 									<div class="p-food-content">
-										<h6><a href="#">{{$card->name}}</a></h6>
+										<h6><a>{{$card->name}}</a></h6>
 										<div class="p-food-group">
 										<span>Type of food : </span>
-											<a href="#">{{ $card->foodname }}</a>
+											<a href="{{ route('recipe',['id'=>$card->id]) }}">{{ $card->foodname }}</a>
 										</div>
 										<ul class="del-time">
-											<li><a href="#">
+	
+											<li><a>
 											@if (isset($card->image2))
 												<img src="/card_images/{{ $card->image2 }}" alt="">
 											@endif
@@ -530,8 +502,6 @@
 			</div>
 		</section>
 		<!-- Popular Food Section Style 2 Ending Here -->
-
-
 		<!-- top Restaurants section start here -->
 		<section class="restaurant-section padding-tb">
 			<div class="container">
@@ -546,6 +516,7 @@
 						<div class="restaurant-inner">
 							<div class="restaurant-thumb">
 								<a href="#">
+								<a>
 									@if (isset($card->image2))	
 										<img src="/card_images/{{ $card->image2 }}" alt="">
 									@endif
@@ -558,7 +529,6 @@
 			</div>
 		</section>
 		<!-- top Restaurants section ending here -->
-
 		
 		<!-- Popular Home Chef Section Start Here -->
 		<section class="popular-chef padding-tb" style="background-color: #fafeff;">
@@ -581,28 +551,25 @@
 								<div class="chef-content">
 									<div class="chef-author">
 										<a href="#">
+										<a href="{{ route('allChefs.showChef',['id'=>$chef->id]) }}">
 											@if (isset($chef->image2))
 											<img src="/chef_images/{{ $chef->image2 }}" alt="">
 										@endif
 										</a>
 									</div>
-									<h5><a href="#">{{ $chef->name }}</a></h5>
+									<h5><a href="{{ route('allChefs.showChef',['id'=>$chef->id]) }}">{{ $chef->name }}</a></h5>
 								<p>{{ $chef->position }}</p>
 									<div class="scocial-share">
-										<a href="#" class="food-btn"><span><i class="icofont-ui-user"></i> follow</span></a>
+										<a href="{{ route('allChefs.showChef',['id'=>$chef->id]) }}" class="food-btn"><span><i class="icofont-ui-user"></i> contact</span></a>
 									</div>
 									<div class="chef-footer">
 										<div class="chef-earn chef-con">
-											<h6>{{ rand(100,300) }}$</h6>
-											<a href="#">Earned</a>
+											<h6>{{ $chef->salary }}$</h6>
+											<a href="#">Slaray</a>
 										</div>
 										<div class="chef-menu chef-con">
-											<h6>{{ rand(30,35) }}</h6>
+											<h6>{{ $chef->age }}</h6>
 											<a href="#">Age</a>
-										</div>
-										<div class="chef-recipe chef-con">
-											<h6>33</h6>
-											<a href="#">Recipe</a>
 										</div>
 									</div>
 								</div>
@@ -612,13 +579,11 @@
 					@endforeach		
 				</div>
 			</div>
-			<center><a href="{{ route('home.chefForm') }}" class="btn btn-secondary mt-5">Add home chef</a></center>
 		</section>
 		<!-- Popular Home Chef Section Ending Here -->
-		
+
 		<!-- Testimonial Section Start Here -->
 		<!-- Testimonial Section Ending Here -->
-
 		<!-- Blog Section Start here -->
 		<section class="blog-section padding-tb">
 			<div class="container">
@@ -636,11 +601,15 @@
 										<div class="post-thumb">
 											<a href="#">
 												<img src="/chef_images/16333772181.png" alt="blog-image">
+											<a href="{{ route('blogSingle',['id'=>$blog->id]) }}">
+												<img src="/chef_images/{{ $blog->image }}" alt="blog-image">
 											</a>
 										</div>
 										<div class="post-content">
 											<h6><a href="#">{{ $blog->title }}</a></h6>
 											<a href="#" class="date">{{ $blog->created_at }}</a>
+											<h6><a href="{{ route('blog') }}">{{ $blog->title }}</a></h6>
+											<a class="date">{{ $blog->created_at }}</a>
 										</div>
 									</div>
 								</div>S
@@ -657,7 +626,6 @@
 			</div>
 		</section>
 		<!-- Blog Section Ending here -->
-
 		<!-- Footer Section Start Here -->
 		<footer class="footer">
 			<div class="bg-shape-style"></div>
@@ -672,11 +640,9 @@
 						</div>
 						<div class="footer-menu">
 							<ul>
-								<li><a href="#">Home</a></li>
-								<li><a href="#">How it works?</a></li>
-								<li><a href="#">Menus</a></li>
-								<li><a href="#">Chefs</a></li>
-								<li><a href="#">Recipes</a></li>
+								<li><a href="{{ route('home') }}">Home</a></li>
+								<li><a href="{{ route('category') }}">Menus</a></li>
+								<li><a href="{{ route('allChefs') }}">Chefs</a></li>
 								<li><a href="#">Contact</a></li>
 							</ul>
 						</div>
@@ -688,12 +654,9 @@
 			</div>
 		</footer>
 		<!-- Footer Section Ending Here -->
-
 		<!-- scrollToTop start here -->
 		<a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
 		<!-- scrollToTop ending here -->
-
-
 		
 		<script src="assets/js/jquery.js"></script>
 		<script src="assets/js/waypoints.min.js"></script>
